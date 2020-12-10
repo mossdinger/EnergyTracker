@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
-import { Activity, EatEstimation, ExerciseEstimation, Info, OptIntake, PopulatedActivity, PopulatedInfo, SevenDays } from './main.type';
+import { Activity, EatEstimation, ExerciseEstimation, Info, OptIntake, PopulatedActivity, PopulatedInfo, SevenDays, CurrentDate } from './main.type';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainService {
-  private url = "http://75effcbc61ef.ngrok.io";
+  private url = "http://127.0.0.1:5000/";
 
   constructor(
     private http: HttpClient, 
@@ -84,6 +84,14 @@ export class MainService {
 
     return this.http.get(`${this.url}/estEx?${query}`, options).pipe(
       map(response => parseInt(response))
+    );
+  }
+
+  getDate(): Observable<CurrentDate> {
+    const options = { responseType: 'text' as 'text' };
+
+    return this.http.get(`${this.url}/getDate`, options).pipe(
+      map(response => (response) as CurrentDate)
     );
   }
 }

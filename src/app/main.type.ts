@@ -22,6 +22,8 @@ export enum Cuisine {
 }
 
 export type OptIntake = number; 
+
+export type CurrentDate = string;
   
 export interface Info {
     age: number;

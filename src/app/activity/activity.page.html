@@ -25,7 +25,7 @@
         <input 
           class="input" 
           type="text"
-          placeholder="A whole lot of ice cream"
+          placeholder="Your activity goes here"
           [value]="activity.note"
           (input)="noteChanged($event.target.value)"
         />
@@ -34,7 +34,7 @@
         <ion-label position="stacked">Energy (calories)</ion-label>
         <input 
           class="input" 
-          placeholder="590"
+          placeholder="0"
           type="number"
           [value]="energyField"
           (input)="energyChanged($event.target.value)"
