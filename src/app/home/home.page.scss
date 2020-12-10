@@ -1,27 +1,68 @@
-#container {
-  text-align: center;
+ion-toolbar {
+  padding-top: 38px !important;
+}
 
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
+  bottom: 16px;
+  width: 100%;
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+  & > *:not(:last-child) {
+    margin-bottom: 12px;
+  }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+  .wrapper {
+    padding: 0 16px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
 
-  color: #8c8c8c;
+    & > *:not(:last-child) {
+      margin-right: 8px;
+    }
 
-  margin: 0;
-}
+    a {
+      flex: 1;
+      border-radius: 100px;
+      height: 44px;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: stretch;
+      text-decoration: none;
+      transition: all 120ms;
 
-#container a {
-  text-decoration: none;
+      ion-icon {
+        margin-right: 6px;
+        font-size: 22px;
+      }
+
+      &.primary {
+        color: white;
+        background: var(--ion-color-primary);
+      }
+
+      &.secondary {
+        color: var(--element-800);
+        background: var(--element-100);
+
+        ion-icon {
+          color: var(--element-700);
+        }
+      }
+
+      &:hover {
+        transform: scale(1.03);
+      }
+
+      &:active {
+        transform: scale(0.97);
+      }
+    }
+  }
 }

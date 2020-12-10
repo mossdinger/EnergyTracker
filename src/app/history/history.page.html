@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let activity of activities">
+    <div class="wrapper">
+      <span class="header">
+        {{
+          activity.mode.toUpperCase() +
+          (activity.mode === 'eat' ? 'ING' : '')
+        }}
+      </span>
+    </div>
+    <span class="net">
+      {{ 
+        activity.energy
+      }}
+    </span>
+    <span *ngIf="activity.note" class="note">
+      {{ 
+        activity.note[0].toUpperCase() + 
+        activity.note.slice(1)
+      }}
+    </span>
+    <span class="date">
+      {{
+        activity.date + ' | ' + activity.time
+      }}
+    </span>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,33 @@
+ion-toolbar {
+  padding-top: 38px !important;
+}
+
+ion-card {
+  padding: 15px 16px;
+  display: flex;
+  flex-flow: column;
+
+  .header {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2%;
+    margin-right: 4px;
+    color: var(--ion-color-primary);
+  }
+
+  .note {
+    font-weight: 500;
+    color: var(--element-700);
+  }
+
+  .net {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--element-900);
+  }
+
+  .date {
+    margin-top: 20px;
+    color: var(--element-500);
+  }
+}

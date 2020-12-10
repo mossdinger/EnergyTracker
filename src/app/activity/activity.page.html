@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Activity</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="wrapper">
+    <ion-segment (ionChange)="segmentChanged($event.detail.value)" [value]="activity.mode">
+      <ion-segment-button value="eat">
+        <ion-icon [name]="activity.mode === 'eat' ? 'pizza' : 'pizza-outline'"></ion-icon>
+        <ion-label >Eat</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="exercise">
+        <ion-icon [name]="activity.mode === 'exercise' ? 'barbell' : 'barbell-outline'"></ion-icon>
+        <ion-label>Exercise</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <div class="panel">
+      <ion-item>
+        <ion-label position="stacked">Note</ion-label>
+        <input 
+          class="input" 
+          [value]="activity.note"
+          (input)="noteChanged($event.target.value)"
+        />
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Energy (calories)</ion-label>
+        <input 
+          class="input" 
+          [value]="energyField"
+          (input)="energyChanged($event.target.value)"
+        />
+      </ion-item>
+    </div>
+    <div class="or">Needs help estimating?</div>  
+    <div *ngIf="activity.mode === 'eat'" class="estimation">
+      <ion-segment (ionChange)="cuisineChanged($event.detail.value)" [value]="estimation.eat.cuisine">
+        <ion-segment-button value="normal">
+          <ion-icon name="fast-food-outline"></ion-icon>
+          <ion-label>
+            Normal
+          </ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="healthy">
+          <ion-icon name="leaf-outline"></ion-icon>
+          <ion-label>
+            Healthy
+          </ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="junk">
+          <ion-icon name="pizza-outline"></ion-icon>
+          <ion-label>
+            Junk
+          </ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="dessert">
+          <ion-icon name="ice-cream-outline"></ion-icon>
+          <ion-label>
+            Dessert
+          </ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <ion-segment (ionChange)="levelChanged($event.detail.value)" [value]="levelField">
+        <ion-segment-button value="1">
+          <ion-label>
+            Small
+          </ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="2">
+          <ion-label>
+            Medium
+          </ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="3">
+          <ion-label>
+            Large
+          </ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <button (click)="estimate()" class="estimate">
+        Estimate
+      </button>
+    </div>
+    <div *ngIf="activity.mode === 'exercise'" class="estimation">
+      <ion-segment (ionChange)="levelChanged($event.detail.value)" [value]="levelField">
+        <ion-segment-button value="1">
+          <ion-label>
+            Light
+          </ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="2">
+          <ion-label>
+            Moderate
+          </ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="3">
+          <ion-label>
+            Intense
+          </ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      <input 
+        class="input" 
+        inputmode="numeric"
+        placeholder="How many minutes?"
+        [value]="minField"
+        (input)="minChanged($event.target.value)"
+      />
+      <button (click)="estimate()" class="estimate">
+        Estimate
+      </button>
+    </div>
+  </div>
+  <button *ngIf="activity.energy && activity.note" (click)="activitySubmitted()" class="submit">Save Activity</button>
+  <button [class]="'submit' + (successNotice ? '' : ' hidden')" disabled>Sucess</button>
+</ion-content>

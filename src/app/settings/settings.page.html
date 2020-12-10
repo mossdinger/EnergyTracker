@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Your Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="info" class="wrapper">
+    <ion-card>
+      <span class="label">Current BMI</span>
+      <span class="bmi">{{info.bmi.toFixed(2)}}</span>
+    </ion-card>
+    <ion-segment 
+      [value]="info.gender"
+      (ionChange)="genderChanged($event.detail.value)">
+      <ion-segment-button value="male">
+        <ion-icon name="female-outline"></ion-icon>
+        <ion-label>
+          Male
+        </ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="female">
+        <ion-icon name="male-outline"></ion-icon>
+        <ion-label>
+          Female
+        </ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <label>Age</label>
+    <input 
+      type="number"
+      (input)="fieldChanged('age', $event.target.value)" 
+      [value]="infoField.age" 
+    />
+    <label>Weight</label>
+    <input 
+      type="number"
+      (input)="fieldChanged('weight', $event.target.value)" 
+      [value]="infoField.weight" 
+    />
+    <label>Height</label>
+    <input 
+      type="number"
+      (input)="fieldChanged('height', $event.target.value)" 
+      [value]="infoField.height" 
+    />
+  </div>
+  <button (click)="submit()" [class]="'submit' + (changeMade ? '' : ' hidden')">
+    Save Changes
+  </button>
+</ion-content>

@@ -1,0 +1,139 @@
+ion-toolbar {
+  padding-top: 38px !important;
+}
+
+div.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  padding: 16px 16px 8px;
+}
+
+ion-segment-button {
+  padding: 8px 0;
+
+  ion-icon {
+    color: var(--element-800);
+  }
+
+  ion-label {
+    color: var(--element-900);
+  }
+}
+
+button.submit {
+  position: fixed;
+  padding: 12px 0 0;
+  bottom: 0;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  animation: moveIn 300ms ease;
+  transition: transform 120ms;
+  color: white;
+  background: var(--ion-color-primary);
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  &.hidden {
+    transition: transform 200ms ease;
+    animation: none;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes moveIn {
+  0% {
+    transform: translateY(80px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+ion-item {
+  --padding-start: 2px;
+  --padding-end: 2px;
+  --inner-padding-end: 0;
+  --border-width: 0;
+  --border-style: none;
+
+  ion-label {
+    color: var(--element-700);
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+input {
+  border-radius: 8px;
+  background: #f1f1f1;
+  width: 100%;
+  appearance: none;
+  outline: none;
+  border: none;
+  height: 39px;
+  padding: 7px 10px;
+}
+
+div.or {
+  margin: 16px 0 16px;
+  display: flex;
+  padding: 0 2px;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  color: var(--element-400);
+  font-size: 14px;
+
+  &::before,
+  &::after {
+    content: "";
+    flex-grow: 1;
+    height: 0;
+    border-top: 1px solid var(--element-200);
+  }
+
+  &::before {
+    margin-right: 4px;
+  }
+
+  &::after {
+    margin-left: 4px;
+  }
+}
+
+button.estimate {
+  margin-top: 12px !important;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ion-color-primary);
+  align-self: stretch;
+  width: 100%;
+  height: 44px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 140ms;
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+div.estimation {
+  --padding-left: 0;
+  --inner-padding-left: 0;
+
+  & > *:not(:first-child) {
+    margin-top: 8px;
+  }
+}
