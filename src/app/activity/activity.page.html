@@ -24,6 +24,8 @@
         <ion-label position="stacked">Note</ion-label>
         <input 
           class="input" 
+          type="text"
+          placeholder="A whole lot of ice cream"
           [value]="activity.note"
           (input)="noteChanged($event.target.value)"
         />
@@ -32,6 +34,8 @@
         <ion-label position="stacked">Energy (calories)</ion-label>
         <input 
           class="input" 
+          placeholder="590"
+          type="number"
           [value]="energyField"
           (input)="energyChanged($event.target.value)"
         />
@@ -106,7 +110,7 @@
       </ion-segment>
       <input 
         class="input" 
-        inputmode="numeric"
+        type="number"
         placeholder="How many minutes?"
         [value]="minField"
         (input)="minChanged($event.target.value)"

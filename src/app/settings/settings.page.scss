@@ -57,6 +57,10 @@ input {
   border: none;
   height: 39px;
   padding: 7px 10px;
+
+  &:invalid {
+    border: 2px solid var(--ion-color-danger);
+  }
 }
 
 ion-card {
