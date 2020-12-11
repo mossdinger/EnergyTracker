@@ -10,7 +10,8 @@ div.wrapper {
 }
 
 ion-segment-button {
-  padding: 8px 0;
+  padding: 8px 0; 
+  min-width: 5px;
 
   ion-icon {
     color: var(--element-800);

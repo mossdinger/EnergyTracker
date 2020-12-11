@@ -98,14 +98,14 @@ def getopt():
     info = db.info.find({})[0]
     if (info['gender'] == 'male'):
       if (info['age'] >= 31):
-        rmr = (info['bmi'] * 3 * 11.6) + 879
+        rmr = (info['weight'] * 11.6) + 879
       else:
-        rmr = (info['bmi'] * 3 * 15.3) + 679
+        rmr = (info['weight'] * 15.3) + 679
     else:
       if (info['age'] >= 31):
-        rmr = (info['bmi'] * 3 * 8.7) + 829
+        rmr = (info['weight'] * 8.7) + 829
       else:
-        rmr = (info['bmi'] * 3 * 14.7) + 496
+        rmr = (info['weight'] * 14.7) + 496
     return str(rmr * 1.5)
 
 @app.route('/estEx', endpoint='estex')
@@ -123,7 +123,7 @@ def estex():
     energy = str(int(0.5 * base * min / 60))
   elif (info['bmi'] > 32):
     energy = str(int(1.5 * base * min / 60))
-  else:
+  else:*
     energy =  str(int((((info['bmi'] - 22) / 20) + 1) * base * min / 60))
   return energy
 

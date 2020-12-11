@@ -6,7 +6,7 @@
   </ion-header>
   
   <ion-card>
-    <canvas height="230px" id="graph">
+    <canvas height="170px" id="graph">
     </canvas>
   </ion-card>
 
@@ -22,18 +22,13 @@
     </div>
     <span class="net">
       {{ 
-        activity.energy
+        activity.energy +' Cal'
       }}
     </span>
     <span *ngIf="activity.note" class="note">
       {{ 
         activity.note[0].toUpperCase() + 
         activity.note.slice(1)
-      }}
-    </span>
-    <span class="date">
-      {{
-        activity.date + ' | ' + activity.time
       }}
     </span>
   </ion-card>
